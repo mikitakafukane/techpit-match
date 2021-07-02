@@ -14,7 +14,12 @@ if(location.pathname == "/users") {
         card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(-' + 30 * index + 'px)';
         card.style.opacity = (10 - index) / 10;
       });
+      
+      if (newCards.length == 0) {
+        $(".no-user").addClass("is-active");
+      }
     }
+
 
     initCards();
 
@@ -36,7 +41,7 @@ if(location.pathname == "/users") {
 
         event.target.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
       });
-      
+
       hammertime.on('panend', function (event) {
         el.classList.remove('moving');
         swipeContainer.classList.remove('swipe_like');
